@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EnergySaver | Smart Reminder</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand"><div class="brand-icon">♧</div><div><h1>EnergySaver</h1><p>Small Steps. Big Impact.</p></div></div>
+    <nav>
+      <button class="nav-link active" data-page="home">⌂ <span>Home</span></button>
+      <button class="nav-link" data-page="reminders">▦ <span>Reminders</span></button>
+      <button class="nav-link" data-page="tips">❧ <span>Tips</span></button>
+      <button class="nav-link" data-page="stats">▥ <span>Stats</span></button>
+      <button class="nav-link" data-page="settings">⚙ <span>Settings</span></button>
+      <button class="nav-link" data-page="terms">▤ <span>Terms</span></button>
+    </nav>
+    <div class="sidebar-note"><div class="bulb">♧</div><strong>Save Energy<br>Save Tomorrow</strong></div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div class="mobile-brand">♧ EnergySaver</div>
+      <div class="top-right"><button id="notificationPermission" class="outline-btn">♧ Enable notifications</button><span id="clock">Today</span></div>
+    </header>
+
+    <section id="home" class="page active-page">
+      <div class="welcome-row">
+        <div class="welcome"><span class="sun">☼</span><div><h2 id="greeting">Good day!</h2><p>Let's make a difference today. Save energy, save our planet.</p></div></div>
+        <div class="saved-card"><span class="leaf">❧</span><div><small>Completed energy-saving actions</small><h2><span id="savedValue">0</span> actions</h2><small>Real count from your completed reminders</small></div></div>
+      </div>
+
+      <div class="tip-grid">
+        <button class="tip-card" data-tip="lights"><span class="round-icon">ϟ</span><strong>Turn off unused lights <span>→</span></strong><small>Save electricity in empty rooms</small></button>
+        <button class="tip-card" data-tip="chargers"><span class="round-icon">♟</span><strong>Unplug chargers <span>→</span></strong><small>Stop standby power use</small></button>
+        <button class="tip-card" data-tip="ac"><span class="round-icon">❄</span><strong>Set AC to 24°C <span>→</span></strong><small>Stay cool more efficiently</small></button>
+        <button class="tip-card" data-tip="water"><span class="round-icon">♢</span><strong>Save water <span>→</span></strong><small>Less water can mean less energy</small></button>
+      </div>
+
+      <div class="content-grid">
+        <section class="panel reminders-panel">
+          <div class="panel-heading"><h3>♟ Today's Reminders</h3><button id="openAdd" class="primary-btn">＋ Add Reminder</button></div>
+          <div id="reminderList" class="reminder-list"></div>
+          <p id="emptyMessage" class="empty-message hidden">No reminders yet. Add one small habit to get started 🌱</p>
+        </section>
+        <section class="panel quick-panel">
+          <h3>ϟ Quick Actions</h3>
+          <button class="quick-action" data-page="tips">❧ <span>View Energy Tips</span> <b>→</b></button>
+          <button class="quick-action" data-page="stats">▥ <span>Check Your Stats</span> <b>→</b></button>
+          <button class="quick-action" id="quickAdd">▦ <span>Set New Reminder</span> <b>→</b></button>
+          <button class="quick-action" id="themeShortcut">◐ <span>Switch Theme</span> <b>→</b></button>
+        </section>
+      </div>
+      <div class="banner"><span>🌱</span><div><strong>Every Watt Counts!</strong><p>Conserve today for a brighter tomorrow.</p></div><div class="windmills">♧　♧　♧</div></div>
+    </section>
+
+    <section id="reminders" class="page">
+      <div class="page-title"><h2>My Reminders</h2><p>Build tiny habits that make a big difference.</p></div>
+      <section class="panel"><div class="panel-heading"><h3>Your reminder schedule</h3><button class="primary-btn" id="openAdd2">＋ Add Reminder</button></div><div id="allReminderList" class="reminder-list"></div></section>
+    </section>
+
+    <section id="tips" class="page">
+      <div class="page-title"><h2>Energy-saving tips</h2><p>Simple actions for your home, one day at a time.</p></div>
+      <div class="tips-library">
+        <article class="panel"><span class="round-icon">ϟ</span><h3>Switch off lights</h3><p>Turn lights off when leaving a room. Use daylight whenever possible.</p><button class="text-btn" data-addtip="Turn off unused lights">＋ Make this a reminder</button></article>
+        <article class="panel"><span class="round-icon">♟</span><h3>Unplug chargers</h3><p>Disconnect chargers and devices when charging is complete, if safe to do so.</p><button class="text-btn" data-addtip="Unplug phone chargers">＋ Make this a reminder</button></article>
+        <article class="panel"><span class="round-icon">❄</span><h3>Use AC wisely</h3><p>Try a comfortable setting around 24–26°C and keep doors and windows closed.</p><button class="text-btn" data-addtip="Keep AC at 24°C or higher">＋ Make this a reminder</button></article>
+        <article class="panel"><span class="round-icon">♢</span><h3>Save hot water</h3><p>Take only the water you need and fix dripping taps promptly.</p><button class="text-btn" data-addtip="Save water">＋ Make this a reminder</button></article>
+        <article class="panel"><span class="round-icon">▤</span><h3>Choose LED bulbs</h3><p>When replacing bulbs, consider efficient LED options.</p><button class="text-btn" data-addtip="Check lights and use LEDs">＋ Make this a reminder</button></article>
+        <article class="panel"><span class="round-icon">☼</span><h3>Use natural light</h3><p>Open curtains during the day when privacy and weather allow.</p><button class="text-btn" data-addtip="Use natural daylight">＋ Make this a reminder</button></article>
+      </div>
+    </section>
+
+    <section id="stats" class="page">
+      <div class="page-title"><h2>Your impact</h2><p>A little progress is still progress.</p></div>
+      <div class="stats-grid">
+        <div class="panel stat-card"><small>Completed actions</small><h2 id="statsSaved">0</h2><p>Count of reminders you marked complete</p></div>
+        <div class="panel stat-card"><small>Reminders completed</small><h2 id="completedCount">0</h2><p>Good habits completed</p></div>
+        <div class="panel stat-card"><small>Active reminders</small><h2 id="activeCount">0</h2><p>Habits on your schedule</p></div>
+      </div>
+      <section class="panel progress-panel"><h3>🌱 Your daily progress</h3><div class="progress-track"><div id="progressBar" class="progress-bar"></div></div><p id="progressText">Complete a reminder to grow your progress.</p><small>Energy figures are demo estimates, not meter readings.</small></section>
+    </section>
+
+    <section id="settings" class="page">
+      <div class="page-title"><h2>Settings</h2><p>Make EnergySaver work your way.</p></div>
+      <section class="panel settings-panel">
+        <div class="setting-row"><div><h3>Dark theme</h3><p>Switch between the classic light look and a dark red night theme.</p></div><label class="switch"><input id="darkToggle" type="checkbox"><span class="slider"></span></label></div>
+        <div class="setting-row"><div><h3>Browser notifications</h3><p>Allow reminder alerts while this website is open. Your browser may ask for permission.</p></div><button id="settingsNotify" class="primary-btn">Enable</button></div>
+        <div class="setting-row"><div><h3>Reminder sound</h3><p>Play a small sound when a reminder is due (if supported).</p></div><label class="switch"><input id="soundToggle" type="checkbox" checked><span class="slider"></span></label></div>
+        <div class="setting-row"><div><h3>Reset demo data</h3><p>Remove reminders and restore the sample dashboard.</p></div><button id="resetData" class="danger-btn">Reset</button></div>
+      </section>
+    </section>
+
+    <section id="terms" class="page">
+      <div class="page-title"><h2>Terms &amp; Conditions</h2><p>Please read how this student demo works.</p></div>
+      <section class="panel terms-panel">
+        <p><strong>Last updated:</strong> 20 October 2026</p>
+        <h3>1. About EnergySaver</h3><p>EnergySaver is a beginner-friendly demonstration website that helps you create personal reminders for everyday energy-saving habits. It is provided for learning and demonstration purposes.</p>
+        <h3>2. Reminder notifications</h3><p>Reminders are checked in your browser while the website is open. Notifications require browser permission and may depend on your device, browser settings, and operating system. Alerts are not guaranteed if the tab is closed, the device is asleep, or permissions are blocked.</p>
+        <h3>3. Data and privacy</h3><p>In this version, reminder entries and theme preferences are stored locally in your browser using localStorage. The website does not include an account system or a server database. Clearing browser data may remove your saved reminders. Do not enter sensitive or confidential information.</p>
+        <h3>4. Energy figures and advice</h3><p>The website counts reminders you mark as completed. It does not measure electricity, water use, costs, or carbon emissions. Tips are general suggestions and are not a promise of specific savings. Use appliances according to their manuals and follow relevant safety guidance.</p>
+        <h3>5. Your responsibilities</h3><p>You are responsible for choosing safe actions and suitable reminder times. Do not unplug, switch off, or adjust equipment if doing so could create a safety risk or interrupt essential equipment.</p>
+        <h3>6. Availability and changes</h3><p>This demo is provided “as is” without a guarantee that every feature will work on every device. Features and these terms may be updated as the project develops.</p>
+        <h3>7. Contact</h3><p>This student demo currently has no support or contact service. For a school submission, replace this line with your project team's approved contact details if required.</p>
+        <p class="terms-note">By using this demo, you acknowledge these terms.</p>
+      </section>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status"></div>
+  <div id="modal" class="modal hidden">
+    <form id="reminderForm" class="modal-card">
+      <button type="button" id="closeModal" class="modal-close" aria-label="Close">×</button>
+      <h2>Create a reminder</h2><p>Choose a small action to remember.</p>
+      <label for="reminderTitle">Reminder name</label><input id="reminderTitle" maxlength="70" required placeholder="e.g. Turn off the lights">
+      <label for="reminderTime">Time</label><input id="reminderTime" type="time" required>
+      <label for="reminderNote">Extra note (optional)</label><input id="reminderNote" maxlength="100" placeholder="e.g. Before leaving the room">
+      <button class="primary-btn submit-btn" type="submit">Save Reminder</button>
+    </form>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
